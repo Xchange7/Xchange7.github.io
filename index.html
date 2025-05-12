@@ -1,118 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xu Peng GitHub.io Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+  <head>
+    <meta charset="utf-8" />
+    <!-- 移动端优化：viewport 设置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- SEO 与描述 -->
+    <meta
+      name="description"
+      content="Peng Xu / 徐鹏 的个人主页 – 计算机科学本科生，热衷软件开发与科研。"
+    />
+    <!-- Favicon（可替换成你的图标文件） -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
 
-        header {
-            background-color: #007acc;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #005ea6;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            padding: 10px 0;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            padding: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .hero {
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .hero img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        .about, .projects, .contact {
-            margin-bottom: 2rem;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Welcome to My GitHub.io Website</h1>
-    </header>
-
-    <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="container">
-        <section class="hero">
-            <img src="https://via.placeholder.com/800x300" alt="Hero Image">
-            <h2>Explore My Work</h2>
-        </section>
-
-        <section id="about" class="about">
-            <h3>About Me</h3>
-            <p>Hi! I'm Xu Peng, a passionate developer and creator. I specialize in backend development, design, and open-source contributions. Welcome to my portfolio website!</p>
-        </section>
-
-        <section id="projects" class="projects">
-            <h3>Projects</h3>
-            <ul>
-                <li><strong>Project 1</strong>: TODO. <a href="#">View on GitHub</a></li>
-            </ul>
-        </section>
-
-        <section id="contact" class="contact">
-            <h3>Contact Me</h3>
-            <p>If you’d like to collaborate or just say hello, feel free to reach out:</p>
-            <ul>
-                <li>Email: <a href="mailto:xchange2022@outlook.com.com">xchange2022@outlook.com</a></li>
-                <li>GitHub: <a href="https://github.com/xchange7" target="_blank">@Xchange7</a></li>
-<!--                <li>LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank">Your Profile</a></li>-->
-            </ul>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Xu Peng. All rights reserved.</p>
-    </footer>
-</body>
+    <!-- 标题可写中英，例如默认英文，React 里可动态改 -->
+    <title>Peng Xu (徐鹏) – Personal & Portfolio</title>
+  </head>
+  <body>
+    <!-- 当 JS 被禁用时显示 -->
+    <noscript>
+      您的浏览器禁用了 JavaScript。请启用 JavaScript，以便查看完整功能。
+    </noscript>
+    <!-- React 应用挂载点 -->
+    <div id="root"></div>
+    <!-- 构建时，CRA 会自动把 bundle 注入到这里 -->
+  </body>
 </html>
