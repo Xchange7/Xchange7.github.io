@@ -24,8 +24,9 @@ function Experience({ lang }) {
       ]
     }
   };
-
-  const data = content[lang];
+  
+  // 避免 lang 为空时报错
+  const data = content[lang] ?? content.en; 
   return (
     <section id="experience">
       <h2>{data.title}</h2>
@@ -37,3 +38,5 @@ function Experience({ lang }) {
     </section>
   );
 }
+
+export default Experience;

@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f5f8fc;
+  color: #333;
+}
+.app-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+nav.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #205493; /* 深蓝主色 */
+  padding: 10px 20px;
+}
+nav.navbar a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+nav.navbar button {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+section {
+  margin: 40px 0;
+}
+h2 {
+  border-bottom: 2px solid #205493;
+  padding-bottom: 8px;
+  color: #205493;
+}
