@@ -2,7 +2,7 @@
 function Portfolio({ lang }) {
   const content = {
     en: {
-      title: "Portfolio & Achievements",
+      title: "Projects & Highlights",
       items: [
         {
           title: "Third Prize – UESTC 19th ACM Programming Contest",
@@ -20,7 +20,7 @@ function Portfolio({ lang }) {
       ]
     },
     zh: {
-      title: "作品展示",
+      title: "项目与成果",
       items: [
         {
           title: "第19届校ACM程序设计大赛三等奖",
