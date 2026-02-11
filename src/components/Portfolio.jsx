@@ -2,49 +2,77 @@
 function Portfolio({ lang }) {
   const content = {
     en: {
-      title: "Portfolio & Achievements",
+      title: "Projects & Highlights",
       items: [
         {
-          title: "Third Prize – UESTC 19th ACM Programming Contest",
-          time: "09/2021",
-          description: "Led a 3-person team to solve complex algorithmic challenges, demonstrating advanced programming skills under competition pressure."
+          title: "LLM Inference Serving Prototype (TODO)",
+          time: "2025",
+          description:
+            "TODO: planned project for batching, cache-aware routing, and latency profiling."
         },
         {
-          title: "Assistant Leader – Campus Art Troupe",
-          time: "09/2021 - 06/2023",
-          description: "Organized 30+ art events with innovative marketing strategies, increasing audience attendance by 20%."
+          title: "MoE Routing Simulator",
+          time: "2024",
+          description:
+            "Simulated expert load balance strategies to compare throughput, tail latency, and utilization."
+        },
+        {
+          title: "CI/CD & Observability Toolkit",
+          time: "2023",
+          description:
+            "Standardized build artifacts, regression checks, and performance alerts for scalable testing workflows."
         }
-        // ... other projects or awards
       ]
     },
     zh: {
-      title: "作品展示",
+      title: "项目与成果",
       items: [
         {
-          title: "第19届校ACM程序设计大赛季军",
-          time: "2021年9月",
-          description: "作为三人团队的队长，合作解决复杂算法问题，在高强度竞赛环境中展示出优秀的编程和问题解决能力。"
+          title: "大模型推理服务原型（TODO）",
+          time: "2025年",
+          description:
+            "TODO：计划中的项目，包含批处理、缓存优化与时延画像。"
         },
         {
-          title: "校文艺演出团副团长",
-          time: "2021年9月 - 2023年6月",
-          description: "统筹组织30余场校园文艺活动，并采用创新宣传策略，使活动出席率提升了20%。"
+          title: "MoE 路由模拟器",
+          time: "2024年",
+          description:
+            "对比不同负载均衡策略下的吞吐、尾时延与资源利用率。"
+        },
+        {
+          title: "CI/CD 与可观测性工具集",
+          time: "2023年",
+          description:
+            "统一制品版本、回归检测与性能告警，支撑规模化测试流程。"
         }
-        // ... 其他项目或奖励
       ]
     }
   };
 
-  const data = content[lang];
+  // 避免 lang 为空时报错
+  const data = content[lang] ?? content.en;
   return (
-    <section id="portfolio">
-      <h2>{data.title}</h2>
-      {data.items.map((item, i) => (
-        <div key={i} className="portfolio-item">
-          <h3>{item.title} <span>({item.time})</span></h3>
-          <p>{item.description}</p>
-        </div>
-      ))}
+    <section id="portfolio" className="section">
+      <div className="section-head">
+        <h2 className="section-title">{data.title}</h2>
+        <p className="section-subtitle">
+          {lang === 'en'
+            ? 'Hands-on work that emphasizes performance, reliability, and scale.'
+            : '聚焦性能、稳定性与规模化的实践项目。'}
+        </p>
+      </div>
+
+      <div className="grid three">
+        {data.items.map((item, i) => (
+          <div key={i} className="card">
+            <div className="card-kicker">{item.time}</div>
+            <h3>{item.title}</h3>
+            <p className="muted">{item.description}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
+
+export default Portfolio;

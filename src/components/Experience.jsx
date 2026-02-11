@@ -2,38 +2,53 @@
 function Experience({ lang }) {
   const content = {
     en: {
-      title: "Work Experience",
-      position: "Quality Assurance Intern, Siemens Digital Industry Software",
+      title: "Experience",
+      position: "Software QA & Infrastructure Intern, Siemens Digital Industry Software",
       period: "Jul 2023 - Jul 2024, Chengdu",
       duties: [
-        "Developed algorithms for predictive analysis in software QA to anticipate system failures.",
-        "Implemented C# automation tests to improve testing efficiency and precision.",
-        "Established a CI/CD framework to streamline development and deployment processes.",
-        "Collaborated with developers by providing detailed testing feedback and suggestions."
+        "Built automation suites and pipelines that reduced regression time and improved release cadence.",
+        "Added performance profiling and reliability checks for large-scale test runs.",
+        "Implemented CI/CD improvements and artifacts versioning for reproducible builds.",
+        "Collaborated with engineers to surface bottlenecks and stabilize critical services."
       ]
     },
     zh: {
       title: "工作经历",
-      position: "西门子数字化工业软件 – 质量保证实习生",
+      position: "西门子数字化工业软件 – 质量保证与基础设施实习生",
       period: "2023年7月 - 2024年7月，成都",
       duties: [
-        "开发软件质量保证的预测分析算法，预判潜在系统故障。",
-        "使用C#编写自动化测试，提高测试效率和准确性。",
-        "建立持续集成/部署 (CI/CD) 框架，优化开发流程并确保及时交付高质量产品。",
-        "与开发团队紧密合作，提供详尽的测试反馈和改进建议。"
+        "构建自动化测试与流水线，缩短回归周期并提升交付效率。",
+        "为大规模测试加入性能画像与稳定性检查。",
+        "完善 CI/CD 及制品版本管理，保证构建可复现。",
+        "与研发协作定位瓶颈并提升核心服务稳定性。"
       ]
     }
   };
-
-  const data = content[lang];
+  
+  // 避免 lang 为空时报错
+  const data = content[lang] ?? content.en; 
   return (
-    <section id="experience">
-      <h2>{data.title}</h2>
-      <h3>{data.position}</h3>
-      <p><em>{data.period}</em></p>
-      <ul>
-        {data.duties.map((duty, i) => <li key={i}>{duty}</li>)}
-      </ul>
+    <section id="experience" className="section">
+      <div className="section-head">
+        <h2 className="section-title">{data.title}</h2>
+        <p className="section-subtitle">
+          {lang === 'en'
+            ? 'A foundation in automation, reliability, and performance engineering.'
+            : '以自动化、稳定性与性能工程为核心的实践基础。'}
+        </p>
+      </div>
+
+      <div className="experience-card">
+        <div className="experience-header">
+          <h3>{data.position}</h3>
+          <span className="muted">{data.period}</span>
+        </div>
+        <ul className="clean-list">
+          {data.duties.map((duty, i) => <li key={i}>{duty}</li>)}
+        </ul>
+      </div>
     </section>
   );
 }
+
+export default Experience;
