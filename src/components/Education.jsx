@@ -74,35 +74,25 @@ function Education({ lang }) {
   const content = data[lang] ?? data.en;
 
   return (
-    <section id="education" className="section">
-      <div className="section-head">
-        <h2 className="section-title">{content.title}</h2>
-        <p className="section-subtitle">
-          {lang === 'en'
-            ? 'Academic background aligned with AI systems and infrastructure.'
-            : '与 AI 系统与基础设施相关的教育背景。'}
-        </p>
-      </div>
-
-      <div className="edu-list">
-        {content.degrees.map((deg, idx) => (
-          <div key={idx} className="edu-card">
-            <div className="edu-logo">
-              {deg.logo && <img src={deg.logo} alt={`${deg.school} logo`} />}
-            </div>
-            <div className="edu-content">
-              <h3>
-                {deg.school}
-                <span className="muted"> {deg.years}</span>
-              </h3>
-              <p className="muted">{deg.degree}</p>
-              <ul className="clean-list">
-                {deg.details.map((item, i) => <li key={i}>{item}</li>)}
-              </ul>
-            </div>
+    <section id="education">
+      <h2>{content.title}</h2>
+      {content.degrees.map((deg, idx) => (
+        <div key={idx} className="degree" style={{ display: "flex", marginBottom: "20px" }}>
+          {/* 左边校徽 */}
+          <div style={{ flex: "0 0 200px", marginRight: "16px" }}>
+            {deg.logo && <img src={deg.logo} alt={`${deg.school} logo`} style={{ width: "200px", height: "60px", objectFit: "contain" }} />}
           </div>
-        ))}
-      </div>
+
+          {/* 右边文字 */}
+          <div>
+            <h3>{deg.school} <span style={{ fontWeight: "normal", fontSize: "0.9em" }}> {deg.years}</span></h3>
+            <p>{deg.degree}</p>
+            <ul>
+              {deg.details.map((item, i) => <li key={i}>{item}</li>)}
+            </ul>
+          </div>
+        </div>
+      ))}
     </section>
   );
 }

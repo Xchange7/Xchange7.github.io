@@ -4,6 +4,8 @@ import Home from './components/Home';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Research from './components/Research';
+import Portfolio from './components/Portfolio';
+import Gallery from './components/Gallery';
 import ContactForm from './components/ContactForm';
 import './styles.css';
 
@@ -14,7 +16,7 @@ import './styles.css';
 
 export default function App() {
   // 'en' 或 'zh'
-  const [lang, setLang] = useState('zh');
+  const [lang, setLang] = useState('en');
 
   return (
     <div className="app-container">
@@ -22,12 +24,14 @@ export default function App() {
       <Navbar currentLang={lang} onLangChange={setLang} />
 
       {/* 主内容区 */}
-      <main className="main-content">
+      <main>
         {/* 各个版块根据 lang 渲染中英文 */}
         <Home lang={lang} />
         <Education lang={lang} />
         <Experience lang={lang} />
         <Research lang={lang} />
+        <Portfolio lang={lang} />
+        <Gallery lang={lang} />
         <ContactForm lang={lang} />
       </main>
     </div>

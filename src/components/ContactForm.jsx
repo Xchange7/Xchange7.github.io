@@ -73,46 +73,38 @@ function ContactForm({ lang }) {
   };
 
   return (
-    <section id="contact" className="section">
-      <div className="section-head">
-        <h2 className="section-title">{t.title}</h2>
-        <p className="section-subtitle">
-          {lang === 'en'
-            ? 'Let’s talk about AI infra, LLM systems, or collaboration.'
-            : '欢迎交流 AI Infra、LLM 系统或合作机会。'}
-        </p>
-        <p className="section-subtitle">Email: xchange2022@outlook.com</p>
-      </div>
-
-      <form onSubmit={handleSubmit} className="contact-form">
+    <section id="contact" style={{ padding: '24px 0' }}>
+      <h2>{t.title}</h2>
+      <form onSubmit={handleSubmit} style={{ maxWidth: 560 }}>
         {/* 防机器人：蜜罐字段 */}
         <input type="text" name="_honey" style={{ display: 'none' }} onChange={() => {}} />
 
-        <div className="form-field">
-          <label>{t.name}:</label>
+        <div style={{ marginBottom: 12 }}>
+          <label style={{ display: 'block', marginBottom: 6 }}>{t.name}:</label>
           <input
             type="text" name="name" value={form.name} onChange={handleChange}
-            required placeholder={t.name}
+            required placeholder={t.name} style={{ width: '100%', padding: 8 }}
           />
         </div>
 
-        <div className="form-field">
-          <label>{t.email}:</label>
+        <div style={{ marginBottom: 12 }}>
+          <label style={{ display: 'block', marginBottom: 6 }}>{t.email}:</label>
           <input
             type="email" name="email" value={form.email} onChange={handleChange}
-            required placeholder="name@example.com"
+            required placeholder="name@example.com" style={{ width: '100%', padding: 8 }}
           />
         </div>
 
-        <div className="form-field">
-          <label>{t.message}:</label>
+        <div style={{ marginBottom: 16 }}>
+          <label style={{ display: 'block', marginBottom: 6 }}>{t.message}:</label>
           <textarea
             name="message" value={form.message} onChange={handleChange}
             required rows={5} placeholder={t.message}
+            style={{ width: '100%', padding: 8, resize: 'vertical' }}
           />
         </div>
 
-        <button className="btn primary" type="submit" disabled={loading}>
+        <button type="submit" disabled={loading} style={{ padding: '8px 16px' }}>
           {loading ? t.sending : t.submit}
         </button>
       </form>

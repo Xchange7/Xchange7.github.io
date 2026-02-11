@@ -1,81 +1,23 @@
 import React from 'react';
 
 function Home({ lang }) {
-  const content = {
-    en: {
-      title: 'M.Phil. in AI',
-      intro:
-        'M.Phil. in AI at HKUST(GZ). My current research focuses on MoE routing and LLM systems, with an interest in scalable inference and efficient training stacks.',
-      actions: {
-        primary: 'Contact Me',
-        secondary: 'Download CV',
-      },
-      highlights: ['LLM Inference & Serving', 'GPU Performance', 'Distributed Systems', 'MLOps & CI/CD'],
-      metrics: [
-        { label: 'Role', value: 'M.Phil. in AI' },
-        { label: 'Research', value: 'MoE Routing' },
-        { label: 'Interest', value: 'LLM Systems' },
-      ],
-    },
-    zh: {
-      title: 'AI 方向 MPhil',
-      intro:
-        '现就读于香港科技大学（广州）AI 方向 MPhil，当前科研聚焦 MoE routing 与大模型系统，并关注高效推理与训练栈。',
-      actions: {
-        primary: '联系我',
-        secondary: '下载简历',
-      },
-      highlights: ['大模型推理与服务', 'GPU 性能优化', '分布式系统', 'MLOps 与 CI/CD'],
-      metrics: [
-        { label: '身份', value: 'MPhil in AI' },
-        { label: '研究', value: 'MoE Routing' },
-        { label: '兴趣', value: 'LLM 系统' },
-      ],
-    },
+  const introText = {
+    en: `I am currently pursuing an M.Phil. in Computer Science and Engineering at HKUST(GZ).
+My research interests focus on Large Language Models and Mixture-of-Experts (MoE).
+Beyond academics, I enjoy fitness, cycling, swimming, and exploring great food.
+As an extrovert, I value connection and collaboration — feel free to reach out through the Contact section if you’d like chat or work together with me.`,
+    zh: `我目前就读于香港科技大学（广州）的计算机科学与工程 MPhil 项目，研究兴趣集中在大语言模型与专家混合（MoE）。
+在学术之外，我热爱健身、骑行、游泳等运动，也喜欢探索美食。
+作为一个外向型人格，我非常珍惜与他人交流与合作的机会——如果你想要跟我交流我，或展开合作，欢迎通过 Contact 页面联系我。`
   };
 
-  const text = content[lang] ?? content.en;
+  // 避免 lang 为空时报错
+  const text = introText[lang] ?? introText.en;
 
   return (
-    <section id="home" className="section hero">
-      <div className="hero-content">
-        <div className="eyebrow">{text.title}</div>
-        <h1>{lang === 'zh' ? '徐鹏' : 'Peng Xu'}</h1>
-        <p className="hero-subtitle">{text.intro}</p>
-
-        <div className="hero-actions">
-          <a className="btn primary" href="#contact">{text.actions.primary}</a>
-          <a className="btn ghost" href="/assets/CV_Chinese.pdf" download>
-            {text.actions.secondary}
-          </a>
-        </div>
-
-        <div className="tag-row">
-          {text.highlights.map((item, i) => (
-            <span className="tag" key={`tag-${i}`}>{item}</span>
-          ))}
-        </div>
-
-        <div className="metric-row">
-          {text.metrics.map((m, i) => (
-            <div className="metric-card" key={`metric-${i}`}>
-              <div className="metric-value">{m.value}</div>
-              <div className="metric-label">{m.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="hero-visual">
-        <div className="profile-card">
-          <img src="/assets/xu_peng.png" alt={lang === 'zh' ? '徐鹏' : 'Peng Xu'} />
-          <div className="profile-info">
-            <div className="profile-name">{lang === 'zh' ? '徐鹏' : 'Peng Xu'}</div>
-            <div className="profile-role">{text.title}</div>
-          </div>
-        </div>
-        <div className="glow-orb" />
-      </div>
+    <section id="home" className="home-section" style={{ padding: "24px 0" }}>
+      <h1>{lang === 'zh' ? '徐鹏' : 'Peng Xu'}</h1>
+      <p>{text}</p>
     </section>
   );
 }

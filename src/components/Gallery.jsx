@@ -10,22 +10,21 @@ function Gallery({ lang }) {
   ];
 
   return (
-    <section id="gallery" className="section">
-      <div className="section-head">
-        <h2 className="section-title">{lang === 'en' ? 'Photo Gallery' : '照片展示'}</h2>
-        <p className="section-subtitle">
-          {lang === 'en' ? 'A quick snapshot of me.' : '简单记录。'}
-        </p>
-      </div>
-
-      <div className="photo-grid">
+    <section id="gallery" style={{ padding: '24px 0' }}>
+      <h2>{lang === 'en' ? 'Photo Gallery' : '照片展示'}</h2>
+      <div className="photo-grid" style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+        gap: '16px'
+      }}>
         {images.map((img, i) => (
-          <figure key={i} className="photo-item">
+          <figure key={i} className="photo-item" style={{ textAlign: 'center' }}>
             <img
               src={img.src}
               alt={lang === 'en' ? img.caption_en : img.caption_zh}
+              style={{ maxWidth: '100%', borderRadius: '8px' }}
             />
-            <figcaption>
+            <figcaption style={{ marginTop: '8px', fontSize: '14px', color: '#555' }}>
               {lang === 'en' ? img.caption_en : img.caption_zh}
             </figcaption>
           </figure>
