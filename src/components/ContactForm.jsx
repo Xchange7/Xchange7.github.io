@@ -132,6 +132,7 @@ export default function ContactForm({ lang }) {
                   {t.email_label}
                 </div>
                 <div style={{ color: 'var(--text-primary)' }}>xchange2022@outlook.com</div>
+                <div style={{ color: 'var(--text-primary)' }}>pxu364@connect.hkust-gz.edu.cn</div>
               </div>
             </div>
 
